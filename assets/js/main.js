@@ -196,20 +196,21 @@ document.addEventListener('keydown', function(e) {
     if (ctrl && (e.key === 'p' || e.key === 'P')) { e.preventDefault(); } // Print
 });
 
-// Inject transparent shields over all 3D renders & doctor cutouts
-// This blocks touch-hold "Save Image" on iOS/Android without affecting clicks on links
+// Inject transparent shields to block touch-hold "Save Image" on iOS/Android.
+// Only targets containers that already have position:relative — never modifies layout.
 (function shieldImages() {
-    const selectors = ['.art-heart', '.art-eye', '.float-prof img', '.pd-avatar img'];
-    selectors.forEach(function(sel) {
-        document.querySelectorAll(sel).forEach(function(el) {
-            const wrap = el.closest('.float-prof') || el.parentElement;
-            if (wrap && !wrap.querySelector('.img-shield')) {
-                const shield = document.createElement('div');
+    // .float-prof (hero doctor cutouts) and .pd-img-area (doctors section) already position:relative
+    ['.float-prof', '.pd-img-area'].forEach(function(sel) {
+        document.querySelectorAll(sel).forEach(function(wrap) {
+            if (!wrap.querySelector('.img-shield')) {
+                var shield = document.createElement('div');
                 shield.className = 'img-shield';
                 shield.style.cssText = 'position:absolute;inset:0;z-index:9;cursor:default;-webkit-tap-highlight-color:transparent;';
-                wrap.style.position = 'relative';
                 wrap.appendChild(shield);
             }
         });
     });
+    // Art renders (.art-heart, .art-eye) are already protected by:
+    // CSS pointer-events:none + global right-click block + dragstart prevention.
+    // Do NOT modify .hero-bg-layer position — it is position:absolute and must stay that way.
 })();
