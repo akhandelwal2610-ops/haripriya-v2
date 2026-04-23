@@ -658,9 +658,9 @@ footer { background: var(--white); padding: 64px 5%; border-top: 1px solid var(-
   /* Pull stats bar into normal flow below the grid */
   .hero-stats-glass { position: relative; transform: none; margin-top: 24px; border-radius: 20px; bottom: auto; left: auto; right: auto; }
   /* Scale back 3D art for tablet */
-  /* Scale renders down — at tablet they were 90%/75% width and drowning the content */
-  .art-heart { left: -10%; right: auto; top: -5%; width: 52%; opacity: 0.5; }
-  .art-eye   { right: -8%; left: auto;  top: 8%;  bottom: auto; width: 42%; opacity: 0.45; }
+  /* Scale renders down, stop floating animation at tablet and below */
+  .art-heart { left: -10%; right: auto; top: -5%; width: 52%; opacity: 0.45; animation: none; }
+  .art-eye   { right: -8%; left: auto;  top: 8%;  bottom: auto; width: 42%; opacity: 0.4;  animation: none; }
   .blob-gold { width: 420px; height: 420px; right: -10%; left: auto; }
   .blob-teal { width: 360px; height: 360px; left: -10%; right: auto; }
 }
@@ -733,10 +733,9 @@ footer { background: var(--white); padding: 64px 5%; border-top: 1px solid var(-
   .float-prof img { height: clamp(140px, 38vw, 210px); }
 
   /* Scale back 3D art & glow blobs for phones */
-  /* Heart: top-left corner, subtle */
-  .art-heart { width: 65%; opacity: 0.2; left: -15%; top: -5%; bottom: auto; }
-  /* Eye: top-right corner — NOT bottom (doctors sit at bottom, they'd hide it) */
-  .art-eye   { width: 50%; opacity: 0.18; right: -10%; top: 15%; bottom: auto; }
+  /* Renders: larger decorative backdrop, static (no float animation on small screens) */
+  .art-heart { width: 85%; opacity: 0.14; left: -18%; top: -6%; bottom: auto; animation: none; }
+  .art-eye   { width: 70%; opacity: 0.13; right: -18%; top: 8%;  bottom: auto; animation: none; }
   .blob-gold { width: 220px; height: 220px; }
   .blob-teal { width: 200px; height: 200px; }
   /* Float-tag tooltip doesn't work on touch — hide on mobile */
