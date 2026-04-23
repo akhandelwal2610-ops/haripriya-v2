@@ -634,7 +634,8 @@ footer { background: var(--white); padding: 64px 5%; border-top: 1px solid var(-
 
   /* Hero: 3-col in-flow grid — [left doctor] [content] [right doctor]
      No absolute positioning = no blank-gap risk on wide phones */
-  .hero-premium { padding: 100px 4% 40px; }
+  /* Column direction so stats bar sits below the 3-col grid, not beside it */
+  .hero-premium { padding: 100px 4% 40px; flex-direction: column; align-items: stretch; }
   .hero-container-symmetric {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
@@ -657,8 +658,9 @@ footer { background: var(--white); padding: 64px 5%; border-top: 1px solid var(-
   /* Pull stats bar into normal flow below the grid */
   .hero-stats-glass { position: relative; transform: none; margin-top: 24px; border-radius: 20px; bottom: auto; left: auto; right: auto; }
   /* Scale back 3D art for tablet */
-  .art-heart { left: -20%; right: auto; top: -5%; width: 90%; }
-  .art-eye { right: -20%; left: auto; bottom: 5%; width: 75%; }
+  /* Scale renders down — at tablet they were 90%/75% width and drowning the content */
+  .art-heart { left: -10%; right: auto; top: -5%; width: 52%; opacity: 0.5; }
+  .art-eye   { right: -8%; left: auto;  top: 8%;  bottom: auto; width: 42%; opacity: 0.45; }
   .blob-gold { width: 420px; height: 420px; right: -10%; left: auto; }
   .blob-teal { width: 360px; height: 360px; left: -10%; right: auto; }
 }
@@ -731,8 +733,10 @@ footer { background: var(--white); padding: 64px 5%; border-top: 1px solid var(-
   .float-prof img { height: clamp(140px, 38vw, 210px); }
 
   /* Scale back 3D art & glow blobs for phones */
-  .art-heart { width: 75%; opacity: 0.25; left: -15%; top: 0; }
-  .art-eye   { width: 60%; opacity: 0.2;  right: -15%; bottom: 0; }
+  /* Heart: top-left corner, subtle */
+  .art-heart { width: 65%; opacity: 0.2; left: -15%; top: -5%; bottom: auto; }
+  /* Eye: top-right corner — NOT bottom (doctors sit at bottom, they'd hide it) */
+  .art-eye   { width: 50%; opacity: 0.18; right: -10%; top: 15%; bottom: auto; }
   .blob-gold { width: 220px; height: 220px; }
   .blob-teal { width: 200px; height: 200px; }
   /* Float-tag tooltip doesn't work on touch — hide on mobile */
