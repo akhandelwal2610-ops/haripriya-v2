@@ -628,16 +628,31 @@ footer { background: var(--white); padding: 64px 5%; border-top: 1px solid var(-
   .grid-2 { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; gap: 40px; }
   .blog-grid { grid-template-columns: repeat(2, 1fr); }
-  /* Hide doctors at tablet — they reappear in-flow on mobile via the 768px grid */
-  .hero-dr-left, .hero-dr-right { display: none; }
-  /* Container: no extra padding needed since doctors are gone */
-  .hero-container-symmetric { max-height: max-content; flex-direction: column; align-items: center; justify-content: center; padding-top: 40px; min-height: auto; padding-bottom: 0; }
-  .hero-content { width: 100%; order: 1; margin-bottom: 20px; text-align: center; }
+
+  /* Hero: 3-col in-flow grid — [left doctor] [content] [right doctor]
+     No absolute positioning = no blank-gap risk on wide phones */
+  .hero-premium { padding: 100px 4% 40px; }
+  .hero-container-symmetric {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+    min-height: auto;
+    padding-top: 0;
+    padding-bottom: 0;
+    align-items: end;
+    gap: 0;
+  }
+  .hero-dr-left  { display: block; position: static; width: 100%; }
+  .hero-dr-right { display: block; position: static; width: 100%; }
+  /* Scale doctor images to fit the narrower side columns */
+  .float-prof img { height: clamp(180px, 26vw, 320px); }
+  .hero-content { width: auto; order: 0; margin-bottom: 16px; text-align: center; align-self: center; }
+  /* Tighten title so it breathes inside the 2fr centre column */
+  .hero-title { font-size: clamp(30px, 4.5vw, 56px); }
+  .hero-subtitle { font-size: 15px; max-width: 100%; margin-bottom: 32px; }
   .hero-cards-wrap { justify-content: center; }
-  /* Centre CTA buttons when hero text is centred */
   .hero-actions { justify-content: center; }
-  /* Pull stats bar into normal flow so it doesn't float absolutely */
-  .hero-stats-glass { position: relative; transform: none; margin-top: 40px; border-radius: 20px; bottom: auto; left: auto; right: auto; }
+  /* Pull stats bar into normal flow below the grid */
+  .hero-stats-glass { position: relative; transform: none; margin-top: 24px; border-radius: 20px; bottom: auto; left: auto; right: auto; }
   /* Scale back 3D art for tablet */
   .art-heart { left: -20%; right: auto; top: -5%; width: 90%; }
   .art-eye { right: -20%; left: auto; bottom: 5%; width: 75%; }
