@@ -175,16 +175,41 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ---- IMAGE SECURITY SYSTEM ----
-// Prevent right-click "Save Image As" on all images
+
+// Block right-click globally (covers images, background renders, canvas, SVG)
 document.addEventListener('contextmenu', function(e) {
-    if (e.target.tagName === 'IMG') {
-        e.preventDefault();
-    }
+    e.preventDefault();
 });
 
-// Prevent drag-and-drop extraction of elements to desktop
+// Block drag-and-drop of any image or link element
 document.addEventListener('dragstart', function(e) {
     if (e.target.tagName === 'IMG' || e.target.tagName === 'A') {
         e.preventDefault();
     }
 });
+
+// Block Ctrl+S (Save Page) and Ctrl+U (View Source)
+document.addEventListener('keydown', function(e) {
+    const ctrl = e.ctrlKey || e.metaKey; // metaKey = Cmd on Mac
+    if (ctrl && (e.key === 's' || e.key === 'S')) { e.preventDefault(); }
+    if (ctrl && (e.key === 'u' || e.key === 'U')) { e.preventDefault(); }
+    if (ctrl && (e.key === 'p' || e.key === 'P')) { e.preventDefault(); } // Print
+});
+
+// Inject transparent shields over all 3D renders & doctor cutouts
+// This blocks touch-hold "Save Image" on iOS/Android without affecting clicks on links
+(function shieldImages() {
+    const selectors = ['.art-heart', '.art-eye', '.float-prof img', '.pd-avatar img'];
+    selectors.forEach(function(sel) {
+        document.querySelectorAll(sel).forEach(function(el) {
+            const wrap = el.closest('.float-prof') || el.parentElement;
+            if (wrap && !wrap.querySelector('.img-shield')) {
+                const shield = document.createElement('div');
+                shield.className = 'img-shield';
+                shield.style.cssText = 'position:absolute;inset:0;z-index:9;cursor:default;-webkit-tap-highlight-color:transparent;';
+                wrap.style.position = 'relative';
+                wrap.appendChild(shield);
+            }
+        });
+    });
+})();

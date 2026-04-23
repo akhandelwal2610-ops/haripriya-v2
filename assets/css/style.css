@@ -41,6 +41,21 @@
 
 /* ---- RESET & BASE ---- */
 *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ---- IMAGE PROTECTION ---- */
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  user-drag: none;
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none; /* re-enabled selectively on clickable images below */
+}
+/* Restore pointer events for images that are inside links (doctor cards, blog, etc.) */
+a img, .float-prof img, .pd-avatar img { pointer-events: auto; }
+/* Decorative art renders: fully locked — no hover, no touch-save */
+.hero-floating-art, .hero-glow-blob { pointer-events: none !important; }
 html {
   scroll-behavior: smooth;
   font-size: 16px;
