@@ -57,7 +57,16 @@ body {
   width: 100%;
   -webkit-font-smoothing: antialiased;
 }
-img { max-width: 100%; display: block; }
+img { 
+  max-width: 100%; 
+  display: block; 
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
 a { text-decoration: none; color: inherit; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; }
 

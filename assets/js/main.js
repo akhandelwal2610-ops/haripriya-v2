@@ -173,3 +173,18 @@ document.addEventListener('DOMContentLoaded', () => {
     animEls.forEach(el => el.classList.add('vis'));
   }
 });
+
+// ---- IMAGE SECURITY SYSTEM ----
+// Prevent right-click "Save Image As" on all images
+document.addEventListener('contextmenu', function(e) {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+    }
+});
+
+// Prevent drag-and-drop extraction of elements to desktop
+document.addEventListener('dragstart', function(e) {
+    if (e.target.tagName === 'IMG' || e.target.tagName === 'A') {
+        e.preventDefault();
+    }
+});
