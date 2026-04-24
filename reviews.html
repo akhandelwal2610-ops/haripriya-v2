@@ -33,25 +33,247 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="assets/css/style.css"/>
 <style>
-.reviews-hero { padding: 140px 5% 60px; text-align: center; }
-.reviews-grid { max-width: 1100px; margin: 0 auto; padding: 0 24px 100px; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 28px; }
-.review-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r-md); padding: 32px 28px; display: flex; flex-direction: column; gap: 16px; transition: box-shadow 0.2s, transform 0.2s; }
-.review-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.09); transform: translateY(-3px); }
-.review-stars { color: #f59e0b; font-size: 20px; letter-spacing: 3px; }
-.review-text { font-size: 17px; line-height: 1.85; color: #444; flex: 1; margin: 0; }
-.review-author { display: flex; align-items: center; gap: 14px; margin-top: 8px; }
-.review-avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 17px; flex-shrink: 0; }
-.review-name { font-weight: 600; font-size: 15px; color: var(--ink); }
-.review-badge { font-size: 12px; color: var(--muted); margin-top: 2px; }
-.review-doctor-tag { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 6px; }
-.tag-heart { background: #fef2f2; color: #c0392b; }
-.tag-eye { background: #f0fafa; color: var(--teal); }
-.tag-both { background: #f8f7ff; color: #5b21b6; }
-.cta-card { background: linear-gradient(135deg, var(--ink), #2c3e50); border-radius: var(--r-md); padding: 40px 32px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 16px; }
-.cta-card h3 { color: white; font-family: 'Playfair Display', serif; font-size: 22px; margin: 0; }
-.cta-card p { color: rgba(255,255,255,0.85); font-size: 15px; line-height: 1.7; margin: 0; }
-.cta-card a { display: inline-block; background: white; color: var(--ink); font-weight: 700; padding: 13px 28px; border-radius: 50px; text-decoration: none; font-size: 15px; margin-top: 4px; }
-@media(max-width: 768px) { .reviews-hero { padding: 110px 5% 40px; } .review-text { font-size: 16px; } }
+
+/* ─── HERO ─── */
+.rv-hero {
+  background: linear-gradient(160deg, #fdf3e3 0%, #fff8ef 55%, #fefcf8 100%);
+  padding: 130px 5% 56px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(212,181,106,0.25);
+}
+.rv-hero::before {
+  content: '\201C';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Playfair Display', serif;
+  font-size: 340px;
+  line-height: 1;
+  color: rgba(212,181,106,0.08);
+  pointer-events: none;
+  user-select: none;
+}
+.rv-google-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  border: 1px solid rgba(212,181,106,0.45);
+  border-radius: 50px;
+  padding: 10px 22px 10px 16px;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 16px rgba(212,181,106,0.18);
+}
+.rv-g-logo { display: flex; align-items: center; }
+.rv-rating-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+}
+.rv-rating-stars { color: #f59e0b; font-size: 16px; letter-spacing: 2px; margin: 0 4px; }
+.rv-rating-label { font-size: 12.5px; color: var(--muted); letter-spacing: 0.04em; }
+.rv-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(34px, 5vw, 58px);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.2;
+  margin: 0 0 18px;
+}
+.rv-hero h1 em { color: var(--gold); font-style: italic; }
+.rv-hero .rv-sub {
+  font-size: 17px;
+  color: var(--muted);
+  line-height: 1.75;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* ─── STRIPS ─── */
+.rv-strips { width: 100%; }
+
+.rv-strip {
+  width: 100%;
+  padding: 64px 8%;
+  display: grid;
+  grid-template-columns: 100px 1fr 180px;
+  gap: 0 40px;
+  align-items: start;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  position: relative;
+}
+.rv-strip:nth-child(even) {
+  background: #fdf8f0;
+}
+.rv-strip:nth-child(odd) {
+  background: #ffffff;
+}
+
+/* Giant decorative quote */
+.rv-open-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 130px;
+  line-height: 0.75;
+  color: rgba(212,181,106,0.35);
+  user-select: none;
+  pointer-events: none;
+  padding-top: 8px;
+}
+
+/* Review body */
+.rv-body { display: flex; flex-direction: column; gap: 0; }
+.rv-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 13px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  width: fit-content;
+}
+.rv-tag.heart { background: #fff0f0; color: #c0392b; border: 1px solid #fbd5d5; }
+.rv-tag.eye   { background: #f0fafa; color: var(--teal); border: 1px solid #c5e8e8; }
+.rv-tag.both  { background: #f5f0ff; color: #6d28d9; border: 1px solid #ddd0ff; }
+
+.rv-quote-text {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(17px, 2vw, 21px);
+  line-height: 1.9;
+  color: #2e2e2e;
+  font-style: italic;
+  margin: 0 0 28px;
+}
+.rv-stars { color: #f59e0b; font-size: 17px; letter-spacing: 3px; margin-bottom: 24px; }
+
+/* Author block */
+.rv-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.rv-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  flex-shrink: 0;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+.rv-name { font-weight: 600; font-size: 15px; color: var(--ink); }
+.rv-verified { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+/* Right column: decorative element */
+.rv-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-top: 20px;
+  opacity: 0.7;
+}
+.rv-side-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 1;
+  color: rgba(212,181,106,0.22);
+  user-select: none;
+}
+.rv-side-label {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+/* ─── CTA STRIP ─── */
+.rv-cta {
+  background: linear-gradient(135deg, #1a2332 0%, #2c3e50 100%);
+  padding: 80px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+.rv-cta-left { flex: 1; }
+.rv-cta-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+.rv-cta-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 3vw, 38px);
+  color: white;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 14px;
+}
+.rv-cta-title em { color: var(--gold); font-style: italic; }
+.rv-cta-sub {
+  font-size: 15.5px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.7;
+  max-width: 460px;
+  margin: 0;
+}
+.rv-cta-right { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.rv-g-review-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  color: #1a2332;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 16px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  transition: transform 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+.rv-g-review-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.3); }
+.rv-cta-note { font-size: 12px; color: rgba(255,255,255,0.45); text-align: center; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .rv-strip {
+    grid-template-columns: 60px 1fr;
+    padding: 48px 6%;
+    gap: 0 24px;
+  }
+  .rv-open-quote { font-size: 90px; }
+  .rv-side { display: none; }
+  .rv-quote-text { font-size: 17px; }
+}
+@media (max-width: 600px) {
+  .rv-hero { padding: 110px 5% 44px; }
+  .rv-strip { grid-template-columns: 1fr; padding: 40px 6%; }
+  .rv-open-quote { display: none; }
+  .rv-cta { flex-direction: column; text-align: center; padding: 56px 6%; }
+  .rv-cta-sub { max-width: 100%; }
+  .rv-cta-left { text-align: center; }
+}
 </style>
 </head>
 <body>
@@ -87,93 +309,128 @@
 </nav>
 
 <!-- HERO -->
-<div class="reviews-hero">
-  <div class="sec-eyebrow reveal i18n" data-hi="सत्यापित Google समीक्षाएं"><span class="line"></span>Verified Google Reviews<span class="line"></span></div>
-  <h1 class="sec-title reveal d1 i18n" data-hi="हमारे <em>मरीज़</em> क्या कहते हैं" style="font-size:clamp(32px,5vw,56px);">What Our <em>Patients</em> Say</h1>
-  <p class="sec-sub reveal d2 i18n" data-hi="वास्तविक मरीज़ों के वास्तविक शब्द — हमें उनकी देखभाल करने का सौभाग्य मिला।">Real words from real patients — we are honoured to have cared for each one of them.</p>
+<section class="rv-hero">
+  <div class="rv-google-badge reveal-scale">
+    <span class="rv-g-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+    </span>
+    <span class="rv-rating-num">5.0</span>
+    <span class="rv-rating-stars">★★★★★</span>
+    <span class="rv-rating-label i18n" data-hi="· 5 Google समीक्षाएं">· 5 Google Reviews</span>
+  </div>
+  <h1 class="reveal-up i18n" data-hi="हमारे <em>मरीज़</em> क्या कहते हैं">What Our <em>Patients</em> Say</h1>
+  <p class="rv-sub reveal-up i18n" data-hi="वास्तविक मरीज़ों के वास्तविक शब्द — हमें उनकी देखभाल करने का सौभाग्य मिला।">Real words from real patients — we are honoured to have cared for each one of them.</p>
+</section>
+
+<!-- REVIEW STRIPS -->
+<div class="rv-strips">
+
+  <!-- ─ Review 1 · Akshay Arora · Dr. Hari Om ─ -->
+  <article class="rv-strip reveal-up">
+    <div class="rv-open-quote">&ldquo;</div>
+    <div class="rv-body">
+      <div class="rv-tag heart i18n" data-hi="❤️ डॉ. हरि ओम त्यागी">❤️ Dr. Hari Om Tyagi</div>
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-quote-text i18n" data-hi="&ldquo;डॉ. हरि ओम त्यागी एक अद्भुत डॉक्टर हैं। वे एक रोगी-केंद्रित हृदय रोग विशेषज्ञ हैं जो हमेशा मरीज़ों की सभी समस्याओं को सुनने के लिए तत्पर रहते हैं। मेरठ में सर्वश्रेष्ठ में से एक।&rdquo;">&ldquo;Dr. Hari Om Tyagi is a wonderful doctor. He is a patient-centric cardiologist who is always eager to listen to all the problems of patients. One of the best in Meerut.&rdquo;</p>
+      <div class="rv-author">
+        <div class="rv-avatar" style="background:linear-gradient(135deg,#c0392b,#e74c3c);">A</div>
+        <div>
+          <div class="rv-name">Akshay Arora</div>
+          <div class="rv-verified i18n" data-hi="सत्यापित Google समीक्षा">Verified Google Review</div>
+        </div>
+      </div>
+    </div>
+    <div class="rv-side"><div class="rv-side-num">01</div><div class="rv-side-label">Review</div></div>
+  </article>
+
+  <!-- ─ Review 2 · Shashi Sharma · Dr. Hari Om ─ -->
+  <article class="rv-strip reveal-up">
+    <div class="rv-open-quote">&ldquo;</div>
+    <div class="rv-body">
+      <div class="rv-tag heart i18n" data-hi="❤️ डॉ. हरि ओम त्यागी">❤️ Dr. Hari Om Tyagi</div>
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-quote-text i18n" data-hi="&ldquo;डॉ. हरि ओम ने तुरंत मेरी पत्नी को देखा। उन्होंने धैर्यपूर्वक समस्याएं सुनीं और राहत का आश्वासन देते हुए कारण समझाया। क्लिनिक प्रशिक्षित कर्मचारियों के साथ सुव्यवस्थित था।&rdquo;">&ldquo;Dr. Hari Om promptly attended to my wife. He patiently heard the issues and explained the underlying cause while assuring relief. The clinic was well organised with trained staff.&rdquo;</p>
+      <div class="rv-author">
+        <div class="rv-avatar" style="background:linear-gradient(135deg,#c0392b,#e74c3c);">S</div>
+        <div>
+          <div class="rv-name">Shashi Sharma <span style="font-size:11px;color:var(--teal);font-weight:600;"> · Local Guide</span></div>
+          <div class="rv-verified i18n" data-hi="सत्यापित Google समीक्षा">Verified Google Review</div>
+        </div>
+      </div>
+    </div>
+    <div class="rv-side"><div class="rv-side-num">02</div><div class="rv-side-label">Review</div></div>
+  </article>
+
+  <!-- ─ Review 3 · Keshav Gautam · Dr. Jeenu Priya ─ -->
+  <article class="rv-strip reveal-up">
+    <div class="rv-open-quote">&ldquo;</div>
+    <div class="rv-body">
+      <div class="rv-tag eye i18n" data-hi="👁️ डॉ. जीनू प्रिया त्यागी">👁️ Dr. Jeenu Priya Tyagi</div>
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-quote-text i18n" data-hi="&ldquo;डॉ. जीनू प्रिया त्यागी सबसे दयालु डॉक्टरों में से एक हैं जिनसे मैं कभी मिला हूं। उन्होंने केवल दवाई पर ध्यान नहीं दिया बल्कि मेरी चिंताएं सुनने के लिए समय निकाला। सच में एक अद्भुत इंसान।&rdquo;">&ldquo;Dr. Jeenu Priya Tyagi is one of the most compassionate doctors I have ever met. She didn't just focus on medicine but also took the time to listen to my concerns and put my mind at ease. Truly a wonderful human being.&rdquo;</p>
+      <div class="rv-author">
+        <div class="rv-avatar" style="background:linear-gradient(135deg,var(--teal),#1a8a8a);">K</div>
+        <div>
+          <div class="rv-name">Keshav Gautam</div>
+          <div class="rv-verified i18n" data-hi="सत्यापित Google समीक्षा">Verified Google Review</div>
+        </div>
+      </div>
+    </div>
+    <div class="rv-side"><div class="rv-side-num">03</div><div class="rv-side-label">Review</div></div>
+  </article>
+
+  <!-- ─ Review 4 · Aarushi Bainsla · General ─ -->
+  <article class="rv-strip reveal-up">
+    <div class="rv-open-quote">&ldquo;</div>
+    <div class="rv-body">
+      <div class="rv-tag both i18n" data-hi="🏥 हरिप्रिया सेंटर">🏥 Haripriya Centre</div>
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-quote-text i18n" data-hi="&ldquo;क्लिनिक त्वरित और व्यवस्थित सेवा प्रदान करता है। डॉक्टर ने बिना जल्दबाजी के उचित ध्यान दिया। सच में बहुत अच्छा अनुभव।&rdquo;">&ldquo;The clinic provides quick and organised service. The doctor gave proper attention without rushing. Really good experience.&rdquo;</p>
+      <div class="rv-author">
+        <div class="rv-avatar" style="background:linear-gradient(135deg,#7c3aed,#9d4edd);">A</div>
+        <div>
+          <div class="rv-name">Aarushi Bainsla</div>
+          <div class="rv-verified i18n" data-hi="सत्यापित Google समीक्षा">Verified Google Review</div>
+        </div>
+      </div>
+    </div>
+    <div class="rv-side"><div class="rv-side-num">04</div><div class="rv-side-label">Review</div></div>
+  </article>
+
+  <!-- ─ Review 5 · Dimpy Singh · Both Doctors · Hinglish (authentic — no toggle) ─ -->
+  <article class="rv-strip reveal-up">
+    <div class="rv-open-quote">&ldquo;</div>
+    <div class="rv-body">
+      <div class="rv-tag both i18n" data-hi="❤️👁️ दोनों डॉक्टर">❤️👁️ Both Doctors</div>
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-quote-text">&ldquo;Dr. Jeenu Priya mam ke treatment se meri aankhon ki roshni wapas aa gayi — jabki Meerut ke koi bhi doctor ne mera treatment nahi kar paaye. Aur Dr. Hari Om sir ke treatment se mere Nana ji ko new life mili. Dono doctors se apnapan bhi bahut milta hai. 🙏&rdquo;</p>
+      <div class="rv-author">
+        <div class="rv-avatar" style="background:linear-gradient(135deg,#d97706,#f59e0b);">D</div>
+        <div>
+          <div class="rv-name">Dimpy Singh</div>
+          <div class="rv-verified i18n" data-hi="सत्यापित Google समीक्षा">Verified Google Review</div>
+        </div>
+      </div>
+    </div>
+    <div class="rv-side"><div class="rv-side-num">05</div><div class="rv-side-label">Review</div></div>
+  </article>
+
 </div>
 
-<!-- REVIEWS GRID -->
-<div class="reviews-grid">
-
-  <!-- Review 1 — Dr. Hari Om -->
-  <div class="review-card reveal d1">
-    <div class="review-doctor-tag tag-heart i18n" data-hi="❤️ डॉ. हरि ओम त्यागी">❤️ Dr. Hari Om Tyagi</div>
-    <div class="review-stars">★★★★★</div>
-    <p class="review-text i18n" data-hi="&ldquo;डॉ. हरि ओम त्यागी एक अद्भुत डॉक्टर हैं। वे एक रोगी-केंद्रित हृदय रोग विशेषज्ञ हैं जो हमेशा मरीज़ों की सभी समस्याओं को सुनने के लिए तत्पर रहते हैं। मेरठ में सर्वश्रेष्ठ में से एक।&rdquo;">&ldquo;Dr. Hari Om Tyagi is a wonderful doctor. He is a patient-centric cardiologist who is always eager to listen to all the problems of patients. One of the best in Meerut.&rdquo;</p>
-    <div class="review-author">
-      <div class="review-avatar" style="background:linear-gradient(135deg,#c0392b,#e74c3c);">A</div>
-      <div>
-        <div class="review-name">Akshay Arora</div>
-        <div class="review-badge i18n" data-hi="सत्यापित Google समीक्षा">Verified Google Review</div>
-      </div>
-    </div>
+<!-- CTA STRIP -->
+<div class="rv-cta">
+  <div class="rv-cta-left">
+    <div class="rv-cta-eyebrow i18n" data-hi="आपकी बारी">Your turn</div>
+    <h2 class="rv-cta-title i18n" data-hi="हमारी देखभाल का <em>अनुभव</em> किया?">Experienced our <em>care?</em></h2>
+    <p class="rv-cta-sub i18n" data-hi="आपकी समीक्षा मेरठ के अन्य मरीज़ों को विश्वसनीय हृदय और नेत्र देखभाल खोजने में मदद करती है। इसमें सिर्फ एक मिनट लगता है।">Your review helps other patients in Meerut find trusted cardiac and eye care. It takes just one minute.</p>
   </div>
-
-  <!-- Review 2 — Dr. Hari Om -->
-  <div class="review-card reveal d2">
-    <div class="review-doctor-tag tag-heart i18n" data-hi="❤️ डॉ. हरि ओम त्यागी">❤️ Dr. Hari Om Tyagi</div>
-    <div class="review-stars">★★★★★</div>
-    <p class="review-text i18n" data-hi="&ldquo;डॉ. हरि ओम ने तुरंत मेरी पत्नी को देखा। उन्होंने धैर्यपूर्वक समस्याएं सुनीं और राहत का आश्वासन देते हुए कारण समझाया। क्लिनिक प्रशिक्षित कर्मचारियों के साथ सुव्यवस्थित था।&rdquo;">&ldquo;Dr. Hari Om promptly attended to my wife. He patiently heard the issues and explained the underlying cause while assuring relief. The clinic was well organised with trained staff.&rdquo;</p>
-    <div class="review-author">
-      <div class="review-avatar" style="background:linear-gradient(135deg,#c0392b,#e74c3c);">S</div>
-      <div>
-        <div class="review-name">Shashi Sharma <span style="font-size:11px;color:var(--teal);font-weight:600;">· Local Guide</span></div>
-        <div class="review-badge i18n" data-hi="सत्यापित Google समीक्षा">Verified Google Review</div>
-      </div>
-    </div>
+  <div class="rv-cta-right">
+    <a href="https://g.page/r/CXLGFBHkAWJlEBM/review" target="_blank" rel="noopener noreferrer" class="rv-g-review-btn i18n" data-hi="Google समीक्षा दें →">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+      Leave a Google Review →
+    </a>
+    <span class="rv-cta-note i18n" data-hi="निःशुल्क · 1 मिनट · बड़ा असर">Free · 1 minute · Huge impact</span>
   </div>
-
-  <!-- Review 3 — Dr. Jeenu Priya -->
-  <div class="review-card reveal d3">
-    <div class="review-doctor-tag tag-eye i18n" data-hi="👁️ डॉ. जीनू प्रिया त्यागी">👁️ Dr. Jeenu Priya Tyagi</div>
-    <div class="review-stars">★★★★★</div>
-    <p class="review-text i18n" data-hi="&ldquo;डॉ. जीनू प्रिया त्यागी सबसे दयालु डॉक्टरों में से एक हैं जिनसे मैं कभी मिला हूं। उन्होंने केवल दवाई पर ध्यान नहीं दिया बल्कि मेरी चिंताएं सुनने के लिए समय निकाला। सच में एक अद्भुत इंसान।&rdquo;">&ldquo;Dr. Jeenu Priya Tyagi is one of the most compassionate doctors I have ever met. She didn't just focus on medicine but also took the time to listen to my concerns and put my mind at ease. Truly a wonderful human being.&rdquo;</p>
-    <div class="review-author">
-      <div class="review-avatar" style="background:linear-gradient(135deg,var(--teal),#1a8a8a);">K</div>
-      <div>
-        <div class="review-name">Keshav Gautam</div>
-        <div class="review-badge i18n" data-hi="सत्यापित Google समीक्षा">Verified Google Review</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Review 4 — General -->
-  <div class="review-card reveal d1">
-    <div class="review-doctor-tag tag-both i18n" data-hi="🏥 हरिप्रिया सेंटर">🏥 Haripriya Centre</div>
-    <div class="review-stars">★★★★★</div>
-    <p class="review-text i18n" data-hi="&ldquo;क्लिनिक त्वरित और व्यवस्थित सेवा प्रदान करता है। डॉक्टर ने बिना जल्दबाजी के उचित ध्यान दिया। सच में बहुत अच्छा अनुभव।&rdquo;">&ldquo;The clinic provides quick and organised service. The doctor gave proper attention without rushing. Really good experience.&rdquo;</p>
-    <div class="review-author">
-      <div class="review-avatar" style="background:linear-gradient(135deg,#7c3aed,#9d4edd);">A</div>
-      <div>
-        <div class="review-name">Aarushi Bainsla</div>
-        <div class="review-badge i18n" data-hi="सत्यापित Google समीक्षा">Verified Google Review</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Review 5 — Both (Hinglish — kept authentic, no translation) -->
-  <div class="review-card reveal d2">
-    <div class="review-doctor-tag tag-both i18n" data-hi="❤️👁️ दोनों डॉक्टर">❤️👁️ Both Doctors</div>
-    <div class="review-stars">★★★★★</div>
-    <p class="review-text">&ldquo;Dr. Jeenu Priya mam ke treatment se meri aankhon ki roshni wapas aa gayi — jabki Meerut ke koi bhi doctor ne mera treatment nahi kar paaye. Aur Dr. Hari Om sir ke treatment se mere Nana ji ko new life mili. Dono doctors se apnapan bhi bahut milta hai. 🙏&rdquo;</p>
-    <div class="review-author">
-      <div class="review-avatar" style="background:linear-gradient(135deg,#d97706,#f59e0b);">D</div>
-      <div>
-        <div class="review-name">Dimpy Singh</div>
-        <div class="review-badge i18n" data-hi="सत्यापित Google समीक्षा">Verified Google Review</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Leave a review CTA -->
-  <div class="cta-card reveal d3">
-    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-    <h3 class="i18n" data-hi="हमारी देखभाल का अनुभव किया?">Experienced our care?</h3>
-    <p class="i18n" data-hi="आपकी समीक्षा मेरठ के अन्य मरीज़ों को विश्वसनीय हृदय और नेत्र देखभाल खोजने में मदद करती है।">Your review helps other patients in Meerut find trusted cardiac and eye care.</p>
-    <a href="https://g.page/r/CXLGFBHkAWJlEBM/review" target="_blank" rel="noopener noreferrer" class="i18n" data-hi="Google समीक्षा दें →">Leave a Google Review →</a>
-  </div>
-
 </div>
 
 <!-- FOOTER -->
