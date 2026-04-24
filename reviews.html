@@ -38,7 +38,7 @@
 .review-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r-md); padding: 32px 28px; display: flex; flex-direction: column; gap: 16px; transition: box-shadow 0.2s, transform 0.2s; }
 .review-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.09); transform: translateY(-3px); }
 .review-stars { color: #f59e0b; font-size: 20px; letter-spacing: 3px; }
-.review-text { font-size: 17px; line-height: 1.85; color: #444; flex: 1; }
+.review-text { font-size: 17px; line-height: 1.85; color: #444; flex: 1; margin: 0; }
 .review-author { display: flex; align-items: center; gap: 14px; margin-top: 8px; }
 .review-avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 17px; flex-shrink: 0; }
 .review-name { font-weight: 600; font-size: 15px; color: var(--ink); }
@@ -88,13 +88,9 @@
 
 <!-- HERO -->
 <div class="reviews-hero">
-  <div class="sec-eyebrow reveal"><div class="eye-line t"></div><span class="eye-text t en">Verified Google Reviews</span><span class="eye-text t hi">सत्यापित Google समीक्षाएं</span></div>
-  <h1 class="sec-title reveal d1" style="font-size:clamp(32px,5vw,56px);">
-    <span class="en">What Our <em>Patients</em> Say</span>
-    <span class="hi">हमारे <em>मरीज़</em> क्या कहते हैं</span>
-  </h1>
-  <p class="reveal d2 en" style="font-size:16px;color:var(--muted);max-width:560px;margin:0 auto;line-height:1.8;">Real words from real patients — we are honoured to have cared for each one of them.</p>
-  <p class="reveal d2 hi" style="font-size:16px;color:var(--muted);max-width:560px;margin:0 auto;line-height:1.8;">वास्तविक मरीज़ों के वास्तविक शब्द — हमें उनकी देखभाल करने का सौभाग्य मिला।</p>
+  <div class="sec-eyebrow reveal i18n" data-hi="सत्यापित Google समीक्षाएं"><span class="line"></span>Verified Google Reviews<span class="line"></span></div>
+  <h1 class="sec-title reveal d1 i18n" data-hi="हमारे <em>मरीज़</em> क्या कहते हैं" style="font-size:clamp(32px,5vw,56px);">What Our <em>Patients</em> Say</h1>
+  <p class="sec-sub reveal d2 i18n" data-hi="वास्तविक मरीज़ों के वास्तविक शब्द — हमें उनकी देखभाल करने का सौभाग्य मिला।">Real words from real patients — we are honoured to have cared for each one of them.</p>
 </div>
 
 <!-- REVIEWS GRID -->
@@ -102,84 +98,70 @@
 
   <!-- Review 1 — Dr. Hari Om -->
   <div class="review-card reveal d1">
-    <div>
-      <div class="review-doctor-tag tag-heart"><span class="en">❤️ Dr. Hari Om Tyagi</span><span class="hi">❤️ डॉ. हरि ओम त्यागी</span></div>
-    </div>
+    <div class="review-doctor-tag tag-heart i18n" data-hi="❤️ डॉ. हरि ओम त्यागी">❤️ Dr. Hari Om Tyagi</div>
     <div class="review-stars">★★★★★</div>
-    <p class="review-text en">"Dr. Hari Om Tyagi is a wonderful doctor. He is a patient-centric cardiologist who is always eager to listen to all the problems of patients. One of the best in Meerut."</p>
-    <p class="review-text hi">"डॉ. हरि ओम त्यागी एक अद्भुत डॉक्टर हैं। वे एक रोगी-केंद्रित हृदय रोग विशेषज्ञ हैं जो हमेशा मरीज़ों की सभी समस्याओं को सुनने के लिए तत्पर रहते हैं। मेरठ में सर्वश्रेष्ठ में से एक।"</p>
+    <p class="review-text i18n" data-hi="&ldquo;डॉ. हरि ओम त्यागी एक अद्भुत डॉक्टर हैं। वे एक रोगी-केंद्रित हृदय रोग विशेषज्ञ हैं जो हमेशा मरीज़ों की सभी समस्याओं को सुनने के लिए तत्पर रहते हैं। मेरठ में सर्वश्रेष्ठ में से एक।&rdquo;">&ldquo;Dr. Hari Om Tyagi is a wonderful doctor. He is a patient-centric cardiologist who is always eager to listen to all the problems of patients. One of the best in Meerut.&rdquo;</p>
     <div class="review-author">
       <div class="review-avatar" style="background:linear-gradient(135deg,#c0392b,#e74c3c);">A</div>
       <div>
         <div class="review-name">Akshay Arora</div>
-        <div class="review-badge"><span class="en">Verified Google Review</span><span class="hi">सत्यापित Google समीक्षा</span></div>
+        <div class="review-badge i18n" data-hi="सत्यापित Google समीक्षा">Verified Google Review</div>
       </div>
     </div>
   </div>
 
   <!-- Review 2 — Dr. Hari Om -->
   <div class="review-card reveal d2">
-    <div>
-      <div class="review-doctor-tag tag-heart"><span class="en">❤️ Dr. Hari Om Tyagi</span><span class="hi">❤️ डॉ. हरि ओम त्यागी</span></div>
-    </div>
+    <div class="review-doctor-tag tag-heart i18n" data-hi="❤️ डॉ. हरि ओम त्यागी">❤️ Dr. Hari Om Tyagi</div>
     <div class="review-stars">★★★★★</div>
-    <p class="review-text en">"Dr. Hari Om promptly attended to my wife. He patiently heard the issues and explained the underlying cause while assuring relief. The clinic was well organised with trained staff."</p>
-    <p class="review-text hi">"डॉ. हरि ओम ने तुरंत मेरी पत्नी को देखा। उन्होंने धैर्यपूर्वक समस्याएं सुनीं और राहत का आश्वासन देते हुए कारण समझाया। क्लिनिक प्रशिक्षित कर्मचारियों के साथ सुव्यवस्थित था।"</p>
+    <p class="review-text i18n" data-hi="&ldquo;डॉ. हरि ओम ने तुरंत मेरी पत्नी को देखा। उन्होंने धैर्यपूर्वक समस्याएं सुनीं और राहत का आश्वासन देते हुए कारण समझाया। क्लिनिक प्रशिक्षित कर्मचारियों के साथ सुव्यवस्थित था।&rdquo;">&ldquo;Dr. Hari Om promptly attended to my wife. He patiently heard the issues and explained the underlying cause while assuring relief. The clinic was well organised with trained staff.&rdquo;</p>
     <div class="review-author">
       <div class="review-avatar" style="background:linear-gradient(135deg,#c0392b,#e74c3c);">S</div>
       <div>
         <div class="review-name">Shashi Sharma <span style="font-size:11px;color:var(--teal);font-weight:600;">· Local Guide</span></div>
-        <div class="review-badge"><span class="en">Verified Google Review</span><span class="hi">सत्यापित Google समीक्षा</span></div>
+        <div class="review-badge i18n" data-hi="सत्यापित Google समीक्षा">Verified Google Review</div>
       </div>
     </div>
   </div>
 
   <!-- Review 3 — Dr. Jeenu Priya -->
   <div class="review-card reveal d3">
-    <div>
-      <div class="review-doctor-tag tag-eye"><span class="en">👁️ Dr. Jeenu Priya Tyagi</span><span class="hi">👁️ डॉ. जीनू प्रिया त्यागी</span></div>
-    </div>
+    <div class="review-doctor-tag tag-eye i18n" data-hi="👁️ डॉ. जीनू प्रिया त्यागी">👁️ Dr. Jeenu Priya Tyagi</div>
     <div class="review-stars">★★★★★</div>
-    <p class="review-text en">"Dr. Jeenu Priya Tyagi is one of the most compassionate doctors I have ever met. She didn't just focus on medicine but also took the time to listen to my concerns and put my mind at ease. Truly a wonderful human being."</p>
-    <p class="review-text hi">"डॉ. जीनू प्रिया त्यागी सबसे दयालु डॉक्टरों में से एक हैं जिनसे मैं कभी मिला हूं। उन्होंने केवल दवाई पर ध्यान नहीं दिया बल्कि मेरी चिंताएं सुनने के लिए समय निकाला। सच में एक अद्भुत इंसान।"</p>
+    <p class="review-text i18n" data-hi="&ldquo;डॉ. जीनू प्रिया त्यागी सबसे दयालु डॉक्टरों में से एक हैं जिनसे मैं कभी मिला हूं। उन्होंने केवल दवाई पर ध्यान नहीं दिया बल्कि मेरी चिंताएं सुनने के लिए समय निकाला। सच में एक अद्भुत इंसान।&rdquo;">&ldquo;Dr. Jeenu Priya Tyagi is one of the most compassionate doctors I have ever met. She didn't just focus on medicine but also took the time to listen to my concerns and put my mind at ease. Truly a wonderful human being.&rdquo;</p>
     <div class="review-author">
       <div class="review-avatar" style="background:linear-gradient(135deg,var(--teal),#1a8a8a);">K</div>
       <div>
         <div class="review-name">Keshav Gautam</div>
-        <div class="review-badge"><span class="en">Verified Google Review</span><span class="hi">सत्यापित Google समीक्षा</span></div>
+        <div class="review-badge i18n" data-hi="सत्यापित Google समीक्षा">Verified Google Review</div>
       </div>
     </div>
   </div>
 
   <!-- Review 4 — General -->
   <div class="review-card reveal d1">
-    <div>
-      <div class="review-doctor-tag tag-both"><span class="en">🏥 Haripriya Centre</span><span class="hi">🏥 हरिप्रिया सेंटर</span></div>
-    </div>
+    <div class="review-doctor-tag tag-both i18n" data-hi="🏥 हरिप्रिया सेंटर">🏥 Haripriya Centre</div>
     <div class="review-stars">★★★★★</div>
-    <p class="review-text en">"The clinic provides quick and organised service. The doctor gave proper attention without rushing. Really good experience."</p>
-    <p class="review-text hi">"क्लिनिक त्वरित और व्यवस्थित सेवा प्रदान करता है। डॉक्टर ने बिना जल्दबाजी के उचित ध्यान दिया। सच में बहुत अच्छा अनुभव।"</p>
+    <p class="review-text i18n" data-hi="&ldquo;क्लिनिक त्वरित और व्यवस्थित सेवा प्रदान करता है। डॉक्टर ने बिना जल्दबाजी के उचित ध्यान दिया। सच में बहुत अच्छा अनुभव।&rdquo;">&ldquo;The clinic provides quick and organised service. The doctor gave proper attention without rushing. Really good experience.&rdquo;</p>
     <div class="review-author">
       <div class="review-avatar" style="background:linear-gradient(135deg,#7c3aed,#9d4edd);">A</div>
       <div>
         <div class="review-name">Aarushi Bainsla</div>
-        <div class="review-badge"><span class="en">Verified Google Review</span><span class="hi">सत्यापित Google समीक्षा</span></div>
+        <div class="review-badge i18n" data-hi="सत्यापित Google समीक्षा">Verified Google Review</div>
       </div>
     </div>
   </div>
 
-  <!-- Review 5 — Both doctors -->
+  <!-- Review 5 — Both (Hinglish — kept authentic, no translation) -->
   <div class="review-card reveal d2">
-    <div>
-      <div class="review-doctor-tag tag-both"><span class="en">❤️👁️ Both Doctors</span><span class="hi">❤️👁️ दोनों डॉक्टर</span></div>
-    </div>
+    <div class="review-doctor-tag tag-both i18n" data-hi="❤️👁️ दोनों डॉक्टर">❤️👁️ Both Doctors</div>
     <div class="review-stars">★★★★★</div>
-    <p class="review-text">"Dr. Jeenu Priya mam ke treatment se meri aankhon ki roshni wapas aa gayi — jabki Meerut ke koi bhi doctor ne mera treatment nahi kar paaye. Aur Dr. Hari Om sir ke treatment se mere Nana ji ko new life mili. Dono doctors se apnapan bhi bahut milta hai. 🙏"</p>
+    <p class="review-text">&ldquo;Dr. Jeenu Priya mam ke treatment se meri aankhon ki roshni wapas aa gayi — jabki Meerut ke koi bhi doctor ne mera treatment nahi kar paaye. Aur Dr. Hari Om sir ke treatment se mere Nana ji ko new life mili. Dono doctors se apnapan bhi bahut milta hai. 🙏&rdquo;</p>
     <div class="review-author">
       <div class="review-avatar" style="background:linear-gradient(135deg,#d97706,#f59e0b);">D</div>
       <div>
         <div class="review-name">Dimpy Singh</div>
-        <div class="review-badge"><span class="en">Verified Google Review</span><span class="hi">सत्यापित Google समीक्षा</span></div>
+        <div class="review-badge i18n" data-hi="सत्यापित Google समीक्षा">Verified Google Review</div>
       </div>
     </div>
   </div>
@@ -187,12 +169,9 @@
   <!-- Leave a review CTA -->
   <div class="cta-card reveal d3">
     <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-    <h3><span class="en">Experienced our care?</span><span class="hi">हमारी देखभाल का अनुभव किया?</span></h3>
-    <p><span class="en">Your review helps other patients in Meerut find trusted cardiac and eye care.</span><span class="hi">आपकी समीक्षा मेरठ के अन्य मरीज़ों को विश्वसनीय हृदय और नेत्र देखभाल खोजने में मदद करती है।</span></p>
-    <a href="https://g.page/r/CXLGFBHkAWJlEBM/review" target="_blank" rel="noopener noreferrer">
-      <span class="en">Leave a Google Review →</span>
-      <span class="hi">Google समीक्षा दें →</span>
-    </a>
+    <h3 class="i18n" data-hi="हमारी देखभाल का अनुभव किया?">Experienced our care?</h3>
+    <p class="i18n" data-hi="आपकी समीक्षा मेरठ के अन्य मरीज़ों को विश्वसनीय हृदय और नेत्र देखभाल खोजने में मदद करती है।">Your review helps other patients in Meerut find trusted cardiac and eye care.</p>
+    <a href="https://g.page/r/CXLGFBHkAWJlEBM/review" target="_blank" rel="noopener noreferrer" class="i18n" data-hi="Google समीक्षा दें →">Leave a Google Review →</a>
   </div>
 
 </div>
@@ -203,32 +182,31 @@
     <div class="footer-grid">
       <div>
         <div class="footer-logo"><img src="assets/images/haripriya-logo.png" alt="Haripriya"/></div>
-        <p class="f-desc en">Expert cardiology and ophthalmology under one roof in Meerut. Compassionate care with advanced technology.</p>
-        <p class="f-desc hi">मेरठ में हृदय एवं नेत्र की विशेषज्ञ देखभाल — एक ही छत के नीचे।</p>
+        <p class="f-desc i18n" data-hi="मेरठ में हृदय एवं नेत्र की विशेषज्ञ देखभाल — एक ही छत के नीचे।">Expert cardiology and ophthalmology under one roof in Meerut.</p>
       </div>
       <div class="f-col">
-        <h4>Navigate</h4>
+        <h4 class="i18n" data-hi="नेविगेट करें">Navigate</h4>
         <ul>
-          <li><a href="index.html"><span class="en">Home</span><span class="hi">होम</span></a></li>
-          <li><a href="index.html#doctors"><span class="en">Doctors</span><span class="hi">डॉक्टर</span></a></li>
+          <li><a href="index.html" class="i18n" data-hi="होम">Home</a></li>
+          <li><a href="index.html#doctors" class="i18n" data-hi="डॉक्टर">Doctors</a></li>
           <li><a href="doctors/dr-hari-om-tyagi.html">Dr. Hari Om Tyagi</a></li>
           <li><a href="doctors/dr-jeenu-priya-tyagi.html">Dr. Jeenu Priya Tyagi</a></li>
-          <li><a href="blog/index.html"><span class="en">Blog</span><span class="hi">ब्लॉग</span></a></li>
-          <li><a href="reviews.html"><span class="en">Reviews</span><span class="hi">समीक्षाएं</span></a></li>
+          <li><a href="blog/index.html" class="i18n" data-hi="ब्लॉग">Blog</a></li>
+          <li><a href="reviews.html" class="i18n" data-hi="समीक्षाएं">Reviews</a></li>
         </ul>
       </div>
       <div class="f-col">
-        <h4><span class="en">Contact</span><span class="hi">संपर्क</span></h4>
+        <h4 class="i18n" data-hi="संपर्क करें">Contact</h4>
         <ul>
           <li><a href="tel:+917217327979">+91-72173 27979</a></li>
           <li><a href="https://wa.me/917217327979" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
-          <li><a href="#" onclick="this.href='mailto:haripriyaheartandeyecare'+String.fromCharCode(64)+'gmail.com';return true;"><span class="en">Email Us</span><span class="hi">ईमेल करें</span></a></li>
+          <li><a href="#" onclick="this.href='mailto:haripriyaheartandeyecare'+String.fromCharCode(64)+'gmail.com';return true;" class="i18n" data-hi="ईमेल करें">Email Us</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Haripriya Heart &amp; Eye Care Centre.</span>
-      <span class="footer-tagline"><span class="en">Your Heart Cared For. Your Vision Protected.</span><span class="hi">आपका दिल और नज़र — हमारी ज़िम्मेदारी।</span></span>
+      <span class="footer-tagline i18n" data-hi="आपका दिल और नज़र — हमारी ज़िम्मेदारी।">Your Heart Cared For. Your Vision Protected.</span>
     </div>
   </div>
 </footer>
