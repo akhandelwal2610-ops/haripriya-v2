@@ -42,17 +42,72 @@
 <link rel="stylesheet" href="assets/css/style.css"/>
 
 <!-- Schema Markup -->
-<script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[
-{"@type":"MedicalClinic","@id":"https://haripriyacare.in/#clinic","name":"Haripriya Heart & Eye Care Centre","telephone":"+91-7217327979","url":"https://haripriyacare.in","image":"https://haripriyacare.in/assets/images/haripriya-logo.png","address":{"@type":"PostalAddress","streetAddress":"67, 1st Floor, Harsh Commercial Park, Garh Road, Ajanta Colony","addressLocality":"Meerut","addressRegion":"Uttar Pradesh","postalCode":"250004","addressCountry":"IN"},"geo":{"@type":"GeoCoordinates","latitude":28.9637076,"longitude":77.7448953},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"10:00","closes":"17:00"},"priceRange":"₹₹","medicalSpecialty":["Cardiology","Ophthalmology"]},
-{"@type":"Physician","name":"Dr. Hari Om Tyagi","medicalSpecialty":"Cardiology","worksFor":{"@id":"https://haripriyacare.in/#clinic"}},
-{"@type":"Physician","name":"Dr. Jeenu Priya Tyagi","medicalSpecialty":"Ophthalmology","worksFor":{"@id":"https://haripriyacare.in/#clinic"}},
-{"@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"OPD timings at Haripriya?","acceptedAnswer":{"@type":"Answer","text":"Both doctors available Monday to Saturday, 10 AM to 5 PM. Closed on Sundays."}},
-{"@type":"Question","name":"Where is Haripriya Centre?","acceptedAnswer":{"@type":"Answer","text":"67, 1st Floor, Harsh Commercial Park, Garh Road, Ajanta Colony, Meerut UP 250004."}}
-]}
-]}
-</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalClinic",
+      "@id": "https://haripriyacare.in/#clinic",
+      "name": "Haripriya Heart & Eye Care Centre",
+      "description": "Meerut's specialist centre for cardiology and ophthalmology. Dr. Hari Om Tyagi (Interventional Cardiologist) and Dr. Jeenu Priya Tyagi (Ophthalmologist) offer angioplasty, cataract surgery, LASIK, SMILE, pacemakers, and full cardiac care.",
+      "url": "https://haripriyacare.in",
+      "telephone": "+91-7217327979",
+      "image": "https://haripriyacare.in/assets/images/haripriya-logo.png",
+      "logo": "https://haripriyacare.in/assets/images/haripriya-logo.png",
+      "sameAs": [
+        "https://maps.app.goo.gl/jemgcEELKMxq5Yo47",
+        "https://www.google.com/maps/place/?q=place_id:ChIJx3u6wTUlDTkRNDpJBt28PGY"
+      ],
+      "hasMap": "https://maps.app.goo.gl/jemgcEELKMxq5Yo47",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "67, 1st Floor, Harsh Commercial Park, Garh Road, Ajanta Colony",
+        "addressLocality": "Meerut",
+        "addressRegion": "Uttar Pradesh",
+        "postalCode": "250004",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 28.9637076,
+        "longitude": 77.7448953
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+          "opens": "10:00",
+          "closes": "17:00"
+        }
+      ],
+      "priceRange": "₹₹",
+      "currenciesAccepted": "INR",
+      "paymentAccepted": "Cash, UPI, Card",
+      "medicalSpecialty": ["Cardiovascular", "Optometric"]
+    },
+    {
+      "@type": "Physician",
+      "name": "Dr. Hari Om Tyagi",
+      "medicalSpecialty": "Cardiovascular",
+      "url": "https://haripriyacare.in/doctors/dr-hari-om-tyagi",
+      "worksFor": {"@id": "https://haripriyacare.in/#clinic"}
+    },
+    {
+      "@type": "Physician",
+      "name": "Dr. Jeenu Priya Tyagi",
+      "medicalSpecialty": "Optometric",
+      "url": "https://haripriyacare.in/doctors/dr-jeenu-priya-tyagi",
+      "worksFor": {"@id": "https://haripriyacare.in/#clinic"}
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question","name": "OPD timings at Haripriya?","acceptedAnswer": {"@type": "Answer","text": "Both doctors available Monday to Saturday, 10 AM to 5 PM. Closed on Sundays."}},
+        {"@type": "Question","name": "Where is Haripriya Centre?","acceptedAnswer": {"@type": "Answer","text": "67, 1st Floor, Harsh Commercial Park, Garh Road, Ajanta Colony, Meerut UP 250004."}}
+      ]
+    }
+  ]
+}</script>
 </head>
 <body>
 
