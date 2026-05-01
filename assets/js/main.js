@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.lb').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 
-    // DOM Swap
+    // DOM Swap — standard i18n elements (data-hi/data-en)
     i18nElements.forEach(el => {
       if (lang === 'hi') {
         const hiText = el.getAttribute('data-hi');
@@ -64,6 +64,15 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.fontFamily = "'Outfit', sans-serif";
       }
     });
+
+    // DOM Swap — legacy .en/.hi span pairs (blog/index.html style)
+    if (lang === 'hi') {
+      document.querySelectorAll('.en').forEach(el => { el.style.display = 'none'; });
+      document.querySelectorAll('.hi').forEach(el => { el.style.display = ''; });
+    } else {
+      document.querySelectorAll('.en').forEach(el => { el.style.display = ''; });
+      document.querySelectorAll('.hi').forEach(el => { el.style.display = 'none'; });
+    }
   };
 
   /* ---- PROCEDURE TABS ---- */

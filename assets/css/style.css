@@ -3,6 +3,9 @@
    Glassmorphism, Fluid Typography, Soft UI
    ============================================================ */
 
+/* i18n: hide Hindi spans by default — JS shows them on lang toggle */
+.hi { display: none; }
+
 /* ---- CUSTOM PROPERTIES ---- */
 :root {
   /* Rich, deep palette */
