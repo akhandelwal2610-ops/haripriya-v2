@@ -10,8 +10,11 @@
 :root {
   /* Rich, deep palette */
   --gold:       #C48B22;
+  --gold-text:  #7A5200;
+  --gold-dark:  #9B6D0A;
   --gold-glow:  rgba(196,139,34,0.4);
   --teal:       #2A8084;
+  --teal-dark:  #216669;
   --teal-glow:  rgba(42,128,132,0.4);
   
   /* Ultra-Premium Neutrals */
