@@ -89,7 +89,7 @@ em {
   font-style: italic;
   color: var(--gold-text);
 }
-.t { color: var(--teal); }
+.t { color: var(--teal-dark); }
 
 .sec-title {
   font-size: clamp(32px, 5vw, 56px);
@@ -368,7 +368,7 @@ em {
   z-index: 10;
 }
 .hs-item { text-align: center; }
-.hs-num { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 500; color: var(--gold); line-height: 1; display: block; margin-bottom: 4px; }
+.hs-num { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 500; color: var(--gold-dark); line-height: 1; display: block; margin-bottom: 4px; }
 .hs-lbl { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
 .hs-div { width: 1px; height: 40px; background: var(--border); }
 
@@ -466,7 +466,7 @@ em {
 .pg-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .pg-step { background: rgba(0,0,0,0.2); padding: 24px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); }
 .pg-num { font-family: 'Playfair Display', serif; font-size: 48px; color: var(--gold); opacity: 0.5; margin-bottom: 8px; line-height: 1; }
-.pg-num.t { color: var(--teal); }
+.pg-num.t { color: var(--teal-dark); }
 .pg-step span { font-size: 14px; color: rgba(255,255,255,0.8); }
 
 /* ---- SERVICES GRID & RESTORED SECTIONS ---- */
@@ -539,7 +539,7 @@ em {
 .stat-blk:last-child { border-right: none; }
 .stat-num { font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 500; display: block; margin-bottom: 8px; }
 .stat-num.g { color: var(--gold-text); }
-.stat-num.t { color: var(--teal); }
+.stat-num.t { color: var(--teal-dark); }
 .stat-label { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
 
 /* ---- BLOG & CONTACT DETAILS ---- */
@@ -553,7 +553,7 @@ em {
 .blog-thumb { height: 180px; background: linear-gradient(135deg, #f0ede6, #e6e2d8); display: flex; align-items: center; justify-content: center; font-size: 48px; position: relative; }
 .blog-cat { position: absolute; top: 16px; left: 16px; font-size: 10px; font-weight: 700; padding: 6px 12px; border-radius: 20px; background: rgba(255,255,255,0.9); }
 .blog-cat.g { color: var(--gold-text); }
-.blog-cat.t { color: var(--teal); }
+.blog-cat.t { color: var(--teal-dark); }
 .blog-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
 .blog-date { font-size: 12px; color: var(--muted); margin-bottom: 12px; }
 .blog-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 500; margin-bottom: 12px; line-height: 1.3; }
