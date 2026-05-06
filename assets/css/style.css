@@ -867,3 +867,113 @@ footer { background: var(--white); padding: 64px 5%; border-top: 1px solid var(-
   .contact-title-pin { width: 80px; top: -40px; }
   .profile-cutout { max-width: 280px; margin: 0 auto; display: block; }
 }
+
+/* ---- CONFERENCES COMPONENT ---- */
+.event-row {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 100px;
+}
+.event-row:nth-child(even) {
+  flex-direction: row-reverse;
+}
+.event-text {
+  flex: 1;
+  padding: 20px;
+}
+.event-date {
+  color: var(--teal, #2a8084);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.event-date::before {
+  content: '';
+  display: inline-block;
+  width: 30px;
+  height: 2px;
+  background-color: var(--teal, #2a8084);
+}
+.event-title {
+  color: var(--ink);
+  font-size: clamp(24px, 3vw, 36px);
+  font-family: 'Playfair Display', serif;
+  margin: 0 0 20px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.event-desc {
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin: 0;
+}
+.event-gallery {
+  flex: 1.5;
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+  height: 500px;
+}
+.event-row:nth-child(even) .event-gallery {
+  grid-template-columns: 1fr 1.8fr;
+}
+.event-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease;
+  filter: contrast(1.05) saturate(1.1);
+}
+.event-gallery img:hover {
+  transform: scale(1.02);
+  z-index: 10;
+}
+.img-main { grid-column: 1 / 2; grid-row: 1 / 3; }
+.event-row:nth-child(even) .img-main { grid-column: 2 / 3; grid-row: 1 / 3; }
+.img-sub-1 { grid-column: 2 / 3; grid-row: 1 / 2; }
+.event-row:nth-child(even) .img-sub-1 { grid-column: 1 / 2; grid-row: 1 / 2; }
+.img-sub-2 { grid-column: 2 / 3; grid-row: 2 / 3; }
+.event-row:nth-child(even) .img-sub-2 { grid-column: 1 / 2; grid-row: 2 / 3; }
+
+@media (max-width: 992px) {
+  .event-row, .event-row:nth-child(even) { flex-direction: column; gap: 40px; margin-bottom: 80px; }
+  .event-gallery { width: 100%; height: clamp(450px, 60vw, 600px); gap: 16px; }
+}
+
+@media (max-width: 768px) {
+  .event-title { font-size: clamp(22px, 6vw, 28px); margin-bottom: 15px; }
+  .event-gallery {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: auto auto !important;
+    height: auto;
+    gap: 12px;
+  }
+  /* Mobile: Main image spans full width top row, using aspect ratio to avoid extreme cropping */
+  .img-main, .event-row:nth-child(even) .img-main {
+    grid-column: 1 / 3 !important;
+    grid-row: 1 / 2 !important;
+    aspect-ratio: 16/10;
+  }
+  /* Mobile: Secondary images sit side-by-side bottom row */
+  .img-sub-1, .event-row:nth-child(even) .img-sub-1 {
+    grid-column: 1 / 2 !important;
+    grid-row: 2 / 3 !important;
+    aspect-ratio: 4/3;
+  }
+  .img-sub-2, .event-row:nth-child(even) .img-sub-2 {
+    grid-column: 2 / 3 !important;
+    grid-row: 2 / 3 !important;
+    aspect-ratio: 4/3;
+  }
+}
