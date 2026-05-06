@@ -132,7 +132,9 @@ document.addEventListener('DOMContentLoaded', () => {
     counterEls.forEach(el => counterObs.observe(el));
   }
 
-  /* ---- WHATSAPP SUBMIT ---- */
+  /* ---- WHATSAPP SUBMIT & CONVERSION TRACKING ---- */
+  
+  // 1. Handler for index.html quick form
   window.submitViaWhatsApp = function () {
     let name = (document.getElementById('cf-name') || {}).value || '';
     let phone = (document.getElementById('cf-phone') || {}).value || '';
@@ -151,8 +153,40 @@ document.addEventListener('DOMContentLoaded', () => {
       'Department: ' + dept,
       msg ? 'Concern: ' + msg : ''
     ].filter(Boolean).join('\n');
+    
     window.open('https://wa.me/917217327979?text=' + encodeURIComponent(text), '_blank');
+    window.location.href = '/thank-you.html'; // Google Ads Conversion Trigger
   };
+
+  // 2. Handler for contact.html dedicated form
+  const aptForm = document.getElementById('appointment-form');
+  if (aptForm) {
+    aptForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      let name = (document.getElementById('name') || {}).value || '';
+      let phone = (document.getElementById('phone') || {}).value || '';
+      let specialty = (document.getElementById('specialty') || {}).value || '';
+      let preferred = (document.getElementById('preferred') || {}).value || '';
+      let msg = (document.getElementById('message') || {}).value || '';
+      
+      name = name.trim();
+      phone = phone.trim();
+      if (!name || !phone || !specialty) { alert('Please fill in all required fields (*).'); return; }
+      
+      const text = [
+        'New Appointment Request — Haripriya Centre',
+        '',
+        'Name: ' + name,
+        'Phone: ' + phone,
+        'Specialty: ' + specialty,
+        preferred ? 'Preferred Time: ' + preferred : '',
+        msg ? 'Details: ' + msg : ''
+      ].filter(Boolean).join('\n');
+      
+      window.open('https://wa.me/917217327979?text=' + encodeURIComponent(text), '_blank');
+      window.location.href = '/thank-you.html'; // Google Ads Conversion Trigger
+    });
+  }
 
   /* ---- SCROLL ANIMATIONS (INTERSECTION OBSERVER) ---- */
   const animEls = document.querySelectorAll('.reveal-up, .reveal-scale');
